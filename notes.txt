@@ -1,0 +1,11 @@
+
+1. User
+   A. Donor
+   B. Donee
+2. Course
+3. Donation
+
+
+A. Course is created by a donee
+B. Donation is created by a donor
+C.
