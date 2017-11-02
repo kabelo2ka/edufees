@@ -32,7 +32,7 @@ class CreateDonationsTable extends Migration
 
             $table->decimal('gross_amount');
             $table->decimal('reduction_rate', 8, 4);
-            $table->decimal('amount_reduced');
+            $table->decimal('reduced_amount');
             $table->decimal('net_amount');
 
             $table->text('comment')->nullable();

@@ -15,27 +15,29 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('slug')->unique();
 
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')
                 ->references('id')->on('users')
                 ->onDelete('cascade');
 
+
             $table->string('name');
             $table->decimal('fee');
             $table->string('institution_name');
             $table->string('campus');
             $table->string('qualification'); // BA, BCOM, etc
-            $table->integer('study_year'); // Year of study
-            $table->integer('current_study_year')->default(0); // Current year of study
+            $table->integer('study_level'); // Year of study
+            $table->integer('current_study_level')->default(0); // Current year of study
             $table->date('start_date');
             $table->date('end_date');
 
             $table->longText('goals'); // Career and Educational Goals
 
             $table->string('donation_status', 20)->default(\App\Course::DONATION_STATUS_IN_PROGRESS);
-            $table->boolean('active');
-            $table->boolean('approved');
+            $table->boolean('active')->default(false);
+            $table->boolean('approved')->default(false);
 
             $table->softDeletes();
             $table->timestamps();
