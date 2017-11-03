@@ -1,26 +1,34 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading clearfix">
-                        Profile of <strong>{{ $donee->first_name }} {{ $donee->last_name }}</strong>
-                        <a href="#" class="btn btn-primary pull-right">Donate</a>
-                    </div>
-
-                    <div class="panel-body">
-                        <ul class="list-unstyled">
-                            <li>First name: {{ $donee->first_name }}</li>
-                            <li>Second name: {{ $donee->second_name }}</li>
-                            <li>Last name: {{ $donee->last_name }}</li>
-                            <li>Email Address: {{ $donee->email }}</li>
-                            <li>Phone Numbers: {{ $donee->phone_number }}</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">{{ $donee->first_name }} {{ $donee->last_name }} <a href="#" class="button is-primary is-pulled-right" >Donate Now</a></h1>
+            
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>First name</td>
+                        <td>{{ $donee->first_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Second name</td>
+                        <td>{{ $donee->second_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Last name</td>
+                        <td>{{ $donee->last_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Email Address</td>
+                        <td>{{ $donee->email }}</td>
+                    </tr>
+                    <tr>
+                        <td>Phone Numbers</td>
+                        <td>{{ $donee->phone_number }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    </div>
+    </section>
 @endsection

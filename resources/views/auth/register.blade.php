@@ -1,77 +1,106 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-
-                <div class="panel-body">
+    <section class="section">
+        <div class="container">
+            <div class="columns is-mobile is-centered">
+                <div class="column is-half is-narrow">
+                    <h1 class="title">Register</h1>
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field">
+                                        <label class="label">First name</label>
+                                        <div class="control has-icons-right">
+                                            <input type="text" class="input {{ $errors->has('first_name') ? 'is-danger' : '' }}" name="first_name" placeholder="First name" value="{{ old('first_name') }}" required autofocus>
+                                            <span class="icon is-small is-right">
+                                                <i class="fa {{ $errors->has('first_name') ? 'fa-warning' : 'fa-check' }}"></i>
+                                            </span>
+                                        </div>
+                                        @if ($errors->has('first_name'))
+                                            <p class="help is-danger">{{ $errors->first('first_name') }}</p>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <label class="label">Last name</label>
+                                    <div class="control has-icons-right">
+                                        <input type="text" class="input {{ $errors->has('last_name') ? 'is-danger' : '' }}" name="last_name" placeholder="Last name" value="{{ old('last_name') }}" required>
+                                        <span class="icon is-small is-right">
+                                            <i class="fa {{ $errors->has('last_name') ? 'fa-warning' : 'fa-check' }}"></i>
+                                        </span>
+                                    </div>
+                                    @if ($errors->has('last_name'))
+                                        <p class="help is-danger">{{ $errors->first('last_name') }}</p>
+                                    @endif
+                                </div>
+                            </div>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
+
+
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input type="email" class="input {{ $errors->has('email') ? 'is-danger' : '' }}"
+                                       name="email" placeholder="Enter your email." value="{{ old('email') }}"
+                                       required autofocus>
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                                <span class="icon is-small is-right">
+                                    <i class="fa {{ $errors->has('email') ? 'fa-warning' : 'fa-check' }}"></i>
+                                </span>
+                            </div>
+                            @if ($errors->has('email'))
+                                <p class="help is-danger">{{ $errors->first('email') }}</p>
+                            @endif
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Password</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input type="password"
+                                       class="input {{ $errors->has('password') ? 'is-danger' : '' }}"
+                                       placeholder="Enter your password." name="password" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                                <span class="icon is-small is-right">
+                                    <i class="fa {{ $errors->has('password') ? 'fa-warning' : 'fa-check' }}"></i>
+                                </span>
+                            </div>
+                            @if ($errors->has('password'))
+                                <p class="help is-danger">{{ $errors->first('password') }}</p>
+                            @endif
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Confirm Password</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input type="password"
+                                       class="input {{ $errors->has('password') ? 'is-danger' : '' }}"
+                                       placeholder="Confirm your password." name="password_confirmation" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                                <span class="icon is-small is-right">
+                                    <i class="fa {{ $errors->has('password') ? 'fa-warning' : 'fa-check' }}"></i>
+                                </span>
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
+                        <div class="field">
+                            <div class="control">
+                                <button type="submit" class="button is-link">Register</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
+
 @endsection
