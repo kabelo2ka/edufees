@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Edufee') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -21,7 +21,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-item" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+                {{ config('app.name', 'Edufees') }}
             </a>
 
             <button class="button navbar-burger">
@@ -34,7 +34,7 @@
             <div class="navbar-start">
                 <!-- navbar items -->
                 <a class="navbar-item" href="{{ route('donees.index') }}">
-                    Donees
+                    <strong>Donees</strong>
                 </a>
             </div>
 
@@ -46,15 +46,15 @@
                             <p class="control">
                                 <a class="button" href="{{ route('login') }}">
                                     <span class="icon">
-                                      <i class="fa fa-twitter" aria-hidden="true"></i>
+                                      <i class="fa fa-sign-in" aria-hidden="true"></i>
                                     </span>
                                     <span>Login</span>
                                 </a>
                             </p>
                             <p class="control">
-                                <a class="button is-primary" href="{{ route('register') }}">
+                                <a class="button is-info" href="{{ route('register') }}">
                                     <span class="icon">
-                                      <i class="fa fa-download" aria-hidden="true"></i>
+                                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                     </span>
                                     <span>Register</span>
                                 </a>
