@@ -32,7 +32,7 @@
                 </div>
                 <div id="navbarMenu" class="navbar-menu">
                     <div class="navbar-end">
-                        <a class="navbar-item">
+                        <a href="{{ route('donees.index') }}" class="navbar-item">
                             Donees
                         </a>
                         <a class="navbar-item">
@@ -70,7 +70,7 @@
                 Want to further your education, <br>but no money for fees?
             </h1>
             <h2 class="subtitle">
-                Don't worry. <strong>Edufees</strong> and our donors have you covered. <a href="{{ route('login') }}"> Register</a> and create a <strong>Donee</strong> account.
+                Don't worry, <strong>Edufees</strong> and donors have you covered. <a href="{{ route('login') }}"> Register</a> and create a <strong>Donee</strong> account.
             </h2>
         </div>
     </div>

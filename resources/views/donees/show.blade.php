@@ -25,7 +25,7 @@
             </table>
 
             <p class="field">
-                <a class="button is-medium is-danger is-block-mobile">
+                <a href="{{ route('donation.create') }}" class="button is-medium is-danger is-block-mobile">
                         <span class="icon">
                           <i class="fa fa-heart"></i>
                         </span>

@@ -25,7 +25,7 @@ class DoneeController extends Controller
      */
     public function create()
     {
-        //
+        return view('donees.create');
     }
 
     /**

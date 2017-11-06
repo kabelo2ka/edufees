@@ -32,9 +32,9 @@
                     <div class="tile is-parent">
                         <article class="tile is-child box">
                             <p class="title">Continue as a Donee</p>
-                            <p class="subtitle">I need money for school fees.</p>
+                            <p class="subtitle">I need money for varsity fees.</p>
                             <p class="field">
-                                <a class="button is-medium is-primary is-block-mobile">
+                                <a href="{{ route('donees.create') }}" class="button is-medium is-primary is-block-mobile">
                                     <span class="icon">
                                       <i class="fa fa-graduation-cap"></i>
                                     </span>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="tile is-parent">
                         <article class="tile is-child box">
-                            <p class="title">Continue as a Donee</p>
+                            <p class="title">Continue as a Donor</p>
                             <p class="subtitle">I have money to help.</p>
                             <a class="button is-medium is-danger is-block-mobile">
                                     <span class="icon">

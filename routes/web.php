@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('donees', 'DoneeController');
+
+Route::resource('donation', 'DonationController');

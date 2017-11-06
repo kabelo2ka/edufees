@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Donation;
+use App\User;
 use Illuminate\Http\Request;
 
 class DonationController extends Controller
@@ -24,7 +25,9 @@ class DonationController extends Controller
      */
     public function create()
     {
-        //
+        $donees = User::donees()->get();
+
+        return view('donation.create', compact('donees'));
     }
 
     /**
@@ -46,7 +49,7 @@ class DonationController extends Controller
      */
     public function show(Donation $donation)
     {
-        //
+        return view($donation);
     }
 
     /**
