@@ -25,10 +25,11 @@
             </table>
 
             <p class="field">
-                <a href="{{ route('donation.create') }}" class="button is-medium is-danger is-block-mobile">
-                        <span class="icon">
-                          <i class="fa fa-heart"></i>
-                        </span>
+                <a href="{{ route('donation.create', ['donee' => $donee->slug]) }}"
+                   class="button is-medium is-danger is-block-mobile">
+                    <span class="icon">
+                      <i class="fa fa-heart"></i>
+                    </span>
                     <span>Donate Now</span>
                 </a>
             </p>

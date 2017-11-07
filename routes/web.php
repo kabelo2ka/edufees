@@ -19,6 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('donees', 'DoneeController');
+Route::resource('donees', 'DoneeController')->middleware('auth');
 
-Route::resource('donation', 'DonationController');
+Route::resource('donation', 'DonationController')->middleware('auth.donor');

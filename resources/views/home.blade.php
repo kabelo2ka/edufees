@@ -9,7 +9,7 @@
                         Hello, {{ auth()->user()->first_name }}.
                     </h1>
                     <h2 class="subtitle">
-                        I hope you are having a great day!
+                        Welcome to {{ config('app.name') }}, we hope you are having a great day!
                     </h2>
                 </div>
                 <div class="column">
@@ -47,7 +47,7 @@
                         <article class="tile is-child box">
                             <p class="title">Continue as a Donor</p>
                             <p class="subtitle">I have money to help.</p>
-                            <a class="button is-medium is-danger is-block-mobile">
+                            <a href="{{ route('donation.create') }}" class="button is-medium is-danger is-block-mobile">
                                     <span class="icon">
                                       <i class="fa fa-heart"></i>
                                     </span>

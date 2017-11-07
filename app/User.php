@@ -39,6 +39,17 @@ class User extends Authenticatable
     |--------------------------------------------------------------------------
     */
 
+    public static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($album) {
+            $album->slug = $album->name;
+            $album->save();
+        });
+
+    }
+
     public function getFullName($include_second_name = false)
     {
         $second_name = $include_second_name ? $this->second_name . ' ' : '';
@@ -90,5 +101,16 @@ class User extends Authenticatable
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+
+    public function setSlugAttribute($value)
+    {
+        $slug = str_slug($value);
+
+        if (static::whereSlug($slug)->exists()) {
+            $slug = "{$slug}-" . $this->id;
+        }
+
+        $this->attributes['slug'] = $slug;
+    }
 
 }

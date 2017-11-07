@@ -7,7 +7,7 @@
 
             @foreach($donees as $donee)
                 <article>
-                    <h4><a href="{{ url('/donees/' . $donee->slug) }}">{{ $donee->first_name }} {{ $donee->last_name }}</a></h4>
+                    <h4><a href="{{ route('donees.show', $donee->slug) }}">{{ $donee->first_name }} {{ $donee->last_name }}</a></h4>
                 </article>
 
                 <hr>
