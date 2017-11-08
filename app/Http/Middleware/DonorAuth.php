@@ -15,7 +15,8 @@ class DonorAuth
      */
     public function handle($request, Closure $next)
     {
-        if ($request->donee == 1) {
+        if (auth()->user()->donee == 1) {
+            flash('You must be a donor to proceed.');
             return redirect()->back();
         }
 

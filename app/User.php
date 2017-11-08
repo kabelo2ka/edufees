@@ -43,9 +43,9 @@ class User extends Authenticatable
     {
         parent::boot();
 
-        static::created(function ($album) {
-            $album->slug = $album->name;
-            $album->save();
+        static::created(function ($user) {
+            $user->slug = $user->getFullname();
+            $user->save();
         });
 
     }

@@ -9,7 +9,7 @@
                         Hello, {{ auth()->user()->first_name }}.
                     </h1>
                     <h2 class="subtitle">
-                        Welcome to {{ config('app.name') }}, we hope you are having a great day!
+                        Welcome to {{ config('app.name') }}!<br>We hope you are having a great day.
                     </h2>
                 </div>
                 <div class="column">

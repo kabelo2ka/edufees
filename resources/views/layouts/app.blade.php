@@ -76,20 +76,23 @@
                             </a>
                             <a class="navbar-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
+                                             document.getElementById('logout-form').submit();">
                                 Logout
                             </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                  style="display: none;">
                                 {{ csrf_field() }}
                             </form>
                         </div>
                     </div>
                 @endguest
-        </div>
+            </div>
         </div>
     </nav>
 
     @yield('content')
+
+    <flash message="{{ session('flash_notification')[0]['message'] }}"></flash>
 </div>
 
 <!-- Scripts -->
