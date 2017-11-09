@@ -23,17 +23,17 @@
                 this.flash(this.message);
             }
 
-            /*window.events.$on('flash', message => {
+            window.events.$on('flash', message => {
                 this.flash(message);
-            });*/
+            });
         },
 
         methods: {
-            flash() {
-                this.body = this.message;
+            flash(message) {
+                this.body = message;
                 this.show = true;
 
-                this.hideAfter(4);
+                this.hideAfter(3);
             },
             hide() {
                 this.show = false;

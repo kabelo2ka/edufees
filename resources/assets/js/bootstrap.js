@@ -7,11 +7,11 @@ window._ = require('lodash');
  * code may be modified to fit the specific needs of your application.
  */
 
-try {
+/*try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap-sass');
-} catch (e) {}
+} catch (e) {}*/
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -54,6 +54,6 @@ if (token) {
 
 window.events = new Vue();
 
-window.flash = function (message) {
+window.flash = (message) => {
     window.events.$emit('flash', message);
 };
