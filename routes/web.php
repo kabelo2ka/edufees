@@ -22,3 +22,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('donees', 'DoneeController')->middleware('auth');
 
 Route::resource('donation', 'DonationController')->middleware('auth.donor');
+
+
+
+
+
+
+
+Route::get('test', function() {
+
+   return auth()->user()->doneeProfile()->exists();
+});

@@ -12,6 +12,14 @@ class DoneesTest extends TestCase
     use DatabaseMigrations;
 
     /** @test */
+    public function a_user_can_create_a_donee_account()
+    {
+        $user = factory('App\User')->create();
+        $donee = factory('App\Donee')->create(['id', $user->id]);
+
+    }
+
+    /** @test */
     public function a_donor_can_browse_donees()
     {
         $donee = factory('App\User')->create();

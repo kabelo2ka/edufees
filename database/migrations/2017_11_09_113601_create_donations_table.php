@@ -21,10 +21,6 @@ class CreateDonationsTable extends Migration
             $table->foreign('donor_id')
                 ->references('id')->on('users')
                 ->onDelete('cascade');
-            $table->integer('donee_id')->unsigned();
-            $table->foreign('donee_id')
-                ->references('id')->on('users')
-                ->onDelete('cascade');
             $table->integer('course_id')->unsigned();
             $table->foreign('course_id')
                 ->references('id')->on('courses')

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Donee;
+use App\Http\Requests\DoneeRequest;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -31,20 +33,42 @@ class DoneeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param DoneeRequest|Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Symfony\Component\HttpFoundation\File\Exception\FileException
      */
-    public function store(Request $request)
+    public function store(DoneeRequest $request)
     {
-        //
+
+        // if the is a ID File uploaded
+        if ($request->hasFile('id_file')) {
+            $file = request()->file('id_file');
+            $destination = public_path('uploads/ids');
+            $filename = md5($file->getClientOriginalName() . microtime()) . '.' . $file->extension();
+            $file->move($destination, $filename);
+            $request->merge(['id_filename'=>$filename]);
+        }
+        // if the is a ID File uploaded
+        if ($request->hasFile('matric_results_file')) {
+            $file = request()->file('matric_results_file');
+            $destination = public_path('uploads/matric_results');
+            $filename = md5($file->getClientOriginalName() . microtime()) . '.' . $file->extension();
+            $file->move($destination, $filename);
+            $request->merge(['matric_results_filename'=>$filename]);
+        }
+        $donee = new Donee($request->all());
+        $donee->user()->associate(auth()->user());
+        $donee->save();
+        flash('Account created, successfully.');
+        return redirect(route('donees.show', ['donee' => auth()->user()->slug]));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param $slug
      * @return \Illuminate\Http\Response
-     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     * @internal param int $id
      */
     public function show($slug)
     {

@@ -62,6 +62,16 @@ class User extends Authenticatable
     |--------------------------------------------------------------------------
     */
 
+    /**
+     * Get Donee Profiles
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function doneeProfile()
+    {
+        return $this->hasOne(Donee::class);
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

@@ -29,10 +29,31 @@ $factory->define(App\User::class, function (Faker $faker) {
     ];
 });
 
+$factory->define(App\Donee::class, function (Faker $faker) {
+    return [
+        'user_id' => function() {
+            factory(App\User::class)->create();
+        },
+        'id_number' => $faker->randomNumber(),
+        'dob' => $faker->date(),
+        'enum' => $faker->randomElement(['m', 'f']),
+        'phone_number' => $faker->phoneNumber,
+        'address' => $faker->address,
+        'city' => $faker->city,
+        'postal_code' => $faker->postcode,
+        'province' => app(\App\Donee::class)->provinces->pluck('id'),
+        'id_filename' => $faker->file(),
+        'matric_results_filename' => $faker->file(),
+        'about' => $faker->paragraphs(2, true),
+
+        'active' => $faker->boolean,
+        'verified' => $faker->boolean,
+    ];
+});
 
 $factory->define(App\Course::class, function (Faker $faker) {
     return [
-        'user_id' => function() {
+        'donee_id' => function() {
             factory(App\User::class)->create();
         },
         'slug' => $faker->slug,

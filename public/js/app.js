@@ -230,6 +230,7 @@ window.Vue = __webpack_require__(4);
 
 Vue.component('example-component', __webpack_require__(8));
 Vue.component('flash', __webpack_require__(11));
+Vue.component('file', __webpack_require__(28));
 
 var app = new Vue({
   el: '#app'
@@ -11272,7 +11273,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\ExampleComponent.vue"
+Component.options.__file = "resources/assets/js/components/ExampleComponent.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
 
 /* hot reload */
@@ -11396,7 +11397,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Flash.vue"
+Component.options.__file = "resources/assets/js/components/Flash.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
 
 /* hot reload */
@@ -11819,16 +11820,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             show: false
         };
     },
-    mounted: function mounted() {
-        var _this = this;
-
+    created: function created() {
         if (this.message) {
             this.flash(this.message);
         }
 
-        window.events.$on('flash', function (message) {
-            _this.flash(message);
-        });
+        /*window.events.$on('flash', message => {
+            this.flash(message);
+        });*/
     },
 
 
@@ -11843,10 +11842,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.show = false;
         },
         hideAfter: function hideAfter(seconds) {
-            var _this2 = this;
+            var _this = this;
 
             setTimeout(function () {
-                _this2.hide();
+                _this.hide();
             }, seconds * 1000);
         }
     }
@@ -11897,6 +11896,158 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(31)
+/* template */
+var __vue_template__ = __webpack_require__(32)
+/* template functional */
+  var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/File.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7925eaf2", Component.options)
+  } else {
+    hotAPI.reload("data-v-7925eaf2", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 29 */,
+/* 30 */,
+/* 31 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['name', 'accept'],
+
+    data: function data() {
+        return {
+            filename: 'No file selected'
+        };
+    },
+    created: function created() {},
+
+
+    methods: {
+        processFile: function processFile(e) {
+            if (e.target.files[0]) {
+                this.filename = e.target.files[0].name;
+            }
+        }
+    }
+
+});
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "file has-name" }, [
+    _c("label", { staticClass: "file-label" }, [
+      _c("input", {
+        staticClass: "file-input",
+        attrs: { type: "file", name: _vm.name, accept: _vm.accept },
+        on: {
+          change: function($event) {
+            _vm.processFile($event)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("span", { staticClass: "file-name" }, [
+        _vm._v(" " + _vm._s(_vm.filename) + " ")
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "file-cta" }, [
+      _c("span", { staticClass: "file-icon" }, [
+        _c("i", { staticClass: "fa fa-upload" })
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "file-label" }, [_vm._v("Choose a file…")])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7925eaf2", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
