@@ -21,7 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('donees', 'DoneeController')->middleware('auth');
 
-Route::resource('donation', 'DonationController')->middleware('auth.donor');
+Route::resource('donation', 'DonationController');
 
 
 

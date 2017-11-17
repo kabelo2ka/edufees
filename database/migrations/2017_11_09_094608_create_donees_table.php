@@ -21,7 +21,7 @@ class CreateDoneesTable extends Migration
                 ->references('id')->on('users')
                 ->onDelete('cascade');
 
-            $table->string('id_number', 20);
+            $table->string('id_number', 20)->unique();
             $table->date('dob');
             $table->enum('gender', ['m','f']); // m  or f
             $table->string('phone_number', 20);

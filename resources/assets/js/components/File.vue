@@ -6,9 +6,9 @@
                 <span class="file-icon">
                     <i class="fa fa-upload"></i>
                 </span>
-                <span class="file-label">Choose a file…</span>
+                <span class="file-label">Click to upload</span>
             </span>
-            <span class="file-name"> {{ filename }} </span>
+            <span v-if="filename" class="file-name"> {{ filename }} </span>
         </label>
     </div>
 </template>
@@ -19,7 +19,7 @@
 
         data() {
             return {
-                filename: 'No file selected',
+                filename: '',
             }
         },
 

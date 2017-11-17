@@ -16,7 +16,7 @@ class DoneeController extends Controller
      */
     public function index()
     {
-        $donees = User::take(20)->get();
+        $donees = User::paginate(20);
         return view('donees.index', compact('donees'));
     }
 
@@ -56,6 +56,7 @@ class DoneeController extends Controller
             $file->move($destination, $filename);
             $request->merge(['matric_results_filename'=>$filename]);
         }
+
         $donee = new Donee($request->all());
         $donee->user()->associate(auth()->user());
         $donee->save();
@@ -72,8 +73,8 @@ class DoneeController extends Controller
      */
     public function show($slug)
     {
-        $donee = User::whereSlug($slug)->firstOrFail();
-        return view('donees.show', compact('donee'));
+        $user = User::whereSlug($slug)->with('doneeProfile')->firstOrFail();
+        return view('donees.show', compact('user'));
     }
 
     /**

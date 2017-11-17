@@ -12,6 +12,8 @@
 
                 <hr>
             @endforeach
+
+            {{ $donees->links('vendor.pagination.bulma') }}
         </div>
     </section>
 @endsection

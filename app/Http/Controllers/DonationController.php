@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class DonationController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth.donor', ['except' => ['create', 'store']]);
+    }
+
     /**
      * Display a listing of the resource.
      *

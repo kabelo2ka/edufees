@@ -28,7 +28,7 @@ class DoneeRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_number' => 'required',
+            'id_number' => 'required,unique:donees',
             'dob' => 'required',
             'gender' => 'required',
             'phone_number' => 'required',
