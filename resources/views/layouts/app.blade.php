@@ -21,16 +21,18 @@
 
             <!-- Branding Image -->
             <a class="navbar-item" href="{{ url('/') }}">
+                <i class="fa fa-graduation-cap"></i>&nbsp;
                 {{ config('app.name', 'Edufees') }}
             </a>
 
-            <button class="button navbar-burger">
+            <span class="navbar-burger" data-target="navbarMenu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </button>
+            </span>
+
         </div>
-        <div class="navbar-menu">
+        <div id="navbarMenu" class="navbar-menu">
             <div class="navbar-start">
                 <!-- navbar items -->
                 <a class="navbar-item" href="{{ route('donees.index') }}">

@@ -58,7 +58,7 @@
                     <td>1</td>
                 </tr>
                 <tr>
-                    <td>Fee:</td>
+                    <td>Fee (Target Amount):</td>
                     <td>R65 000</td>
                 </tr>
                 <tr>

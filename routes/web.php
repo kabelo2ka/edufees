@@ -25,7 +25,7 @@ Route::resource('donation', 'DonationController');
 
 
 
-
+Route::post('donation/payment', 'StripeController@store')->name('payment.stripe.store');
 
 
 
